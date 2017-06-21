@@ -21,7 +21,7 @@ public class SignUtil {
     public static JSONObject getSignature(String appid,String ticket,String url){  
         String nonceStr = getNonceStr();  
         String timestamp = getTimeStamp();  
-        //字典排序的签名参数  
+        //字典排序的签名参数   根据微信JS-SDK规则  不可随意改动
         String string1 = "jsapi_ticket=%s&noncestr=%s&timestamp=%s&url=%s";  
         string1 = String.format(string1, ticket, nonceStr, timestamp, url);  
         //对string1进行sha1签名，得到signature  
@@ -29,7 +29,7 @@ public class SignUtil {
         //最后组装json数据  
         Config config = new Config();  
         config.setAppId(appid);  
-        config.setTicket(ticket);  
+//        config.setTicket(ticket);  
         config.setNonceStr(nonceStr);  
         config.setSignature(signature);  
         config.setTimestamp(timestamp);  

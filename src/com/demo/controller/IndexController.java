@@ -1,5 +1,10 @@
 package com.demo.controller;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.logging.Logger;
+
 import com.demo.utils.SignUtil;
 import com.jfinal.core.Controller;
 import com.jfinal.plugin.ehcache.CacheKit;
@@ -14,8 +19,14 @@ import net.sf.json.JSONObject;
  */
 public class IndexController extends Controller {
 	public void index() {
-		System.out.println(CacheKit.get("wechat", "time"));
+		Logger.getAnonymousLogger().info("缓存时间："+CacheKit.get("wechat", "time").toString());
+		Date nowDate = new Date();
+        DateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"); 
+        String nowTime = format.format(nowDate); 
 		setAttr("cacheTime", CacheKit.get("wechat", "time"));
+		setAttr("token",CacheKit.get("wechat","token")==null?"null":"ok");
+		setAttr("ticket",CacheKit.get("wechat","ticket")==null?"null":"ok");
+		setAttr("nowTime",nowTime);
 		renderJsp("index.jsp");
 	}
 	
@@ -32,6 +43,7 @@ public class IndexController extends Controller {
 					return;
 				}
 			}
+			Logger.getAnonymousLogger().info("未授权的url调用了接口："+url);
 			renderText("你的网址是不被认证的，请勿恶意调用，上证信息技术公司保留一切权利");
 			return;
 		}
@@ -41,6 +53,7 @@ public class IndexController extends Controller {
 		//读取缓存里的ticket
 		String ticketCache = CacheKit.get("wechat", "ticket");  
 		JSONObject j = SignUtil.getSignature(CacheKit.get("properties", "appid").toString(), ticketCache, url);
+		Logger.getAnonymousLogger().info(url+"：已成功返回json");
 		renderJson(j);
 	}
 }

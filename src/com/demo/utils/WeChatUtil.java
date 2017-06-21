@@ -82,7 +82,7 @@ public class WeChatUtil {
         } catch (ConnectException ce) {  
             Logger.getAnonymousLogger().info("Weixin server connection timed out.");  
         } catch (Exception e) {  
-            Logger.getAnonymousLogger().info("信任管理器请求时..."+e);  
+            Logger.getAnonymousLogger().info("信任管理器请求超时时..."+e);  
         }  
         return jsonObject;  
     }  

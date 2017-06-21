@@ -7,6 +7,7 @@ package com.demo.task;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.logging.Logger;
 
 import com.demo.bean.Ticket;
 import com.demo.utils.WeChatUtil;
@@ -28,7 +29,7 @@ public class CacheWeChatTask {
 	          CacheKit.put("wechat", "token", tokenCache);  
 	          CacheKit.put("wechat", "ticket", ticket.getTicket());
 	          CacheKit.put("wechat", "time", nowTime);
-	          System.out.println("缓存时间已更新:"+nowTime);
+	          Logger.getAnonymousLogger().info("缓存时间已更新:"+nowTime);
 		   }
 		   
 }

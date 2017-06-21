@@ -2,7 +2,7 @@ package com.demo.bean;
 
 public class Config {
 	 private String appId;     //公众号appId  
-	    private String ticket;   //获取到的凭证  
+//	    private String ticket;   //获取到的凭证  
 	    private String nonceStr; //随机字串  
 	    private String timestamp;//时间戳  
 	    private String signature;//获取到的签名  
@@ -13,12 +13,12 @@ public class Config {
 	    public void setAppId(String appId) {  
 	        this.appId = appId;  
 	    }  
-	    public String getTicket() {  
+	   /* public String getTicket() {  
 	        return ticket;  
 	    }  
 	    public void setTicket(String ticket) {  
 	        this.ticket = ticket;  
-	    }  
+	    }  */
 	    public String getNonceStr() {  
 	        return nonceStr;  
 	    }  
