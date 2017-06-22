@@ -1,3 +1,4 @@
+
 ## 1. 微信应用服务
 
 它可以获取微信公众号token和ticket进行加密签名等。
@@ -40,9 +41,10 @@
 ## 6. 检查运行状况
 
 - 项目运行后，打开浏览器输入服务地址如 localhost:8101 （端口8101为例）
-- 
+
+![image](http://7xp9tt.com1.z0.glb.clouddn.com/QQ%E5%9B%BE%E7%89%8720170622102505.png?e=1498101914&token=8slkD8Omrwv8jl-FVdY_DTPxmXvoVLYVN-f4zsTG:pk3pzaKCvXJRiha25GuNm0CEQCA)
+
+- 如果异常，请查看服务日志文件
 
 
-
-
-    By yaokwok 2017.06.16
+    By yaokwok 2017.06.16 
